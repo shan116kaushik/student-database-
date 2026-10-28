@@ -1,0 +1,442 @@
+Microsoft Windows [Version 10.0.26200.9711]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\asus>"C:\Users\asus\AppData\Local\Programs\mongosh\mongosh.exe"
+Current Mongosh Log ID: 6ae1a33eeabd0e543e2bbf4a
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.14.0
+Using MongoDB:          8.3.11
+Using Mongosh:          2.14.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-10-17T04:42:57.945+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use StudentManagementDB
+switched to db StudentManagementDB
+StudentManagementDB> db.createCollection("students")
+{ ok: 1 }
+StudentManagementDB> db.students.insertMany([
+|     {
+|         studentId: 101,
+|         name: "Aarav Sharma",
+|         department: "CSE",
+|         courseId: "C101",
+|         courseName: "MongoDB",
+|         marks: 85
+|     },
+|     {
+|         studentId: 102,
+|         name: "Diya Patel",
+|         department: "IT",
+|         courseId: "C101",
+|         courseName: "MongoDB",
+|         marks: 92
+|     },
+|     {
+|         studentId: 103,
+|         name: "Kabir Singh",
+|         department: "CSE",
+|         courseId: "C102",
+|         courseName: "Python",
+|         marks: 78
+|     },
+|     {
+|         studentId: 104,
+|         name: "Ananya Verma",
+|         department: "AI",
+|         courseId: "C102",
+|         courseName: "Python",
+|         marks: 88
+|     },
+|     {
+|         studentId: 105,
+|         name: "Ishaan Gupta",
+|         department: "IT",
+|         courseId: "C103",
+|         courseName: "Data Analytics",
+|         marks: 81
+|     }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6ae1a360eabd0e543e2bbf4b'),
+    '1': ObjectId('6ae1a360eabd0e543e2bbf4c'),
+    '2': ObjectId('6ae1a360eabd0e543e2bbf4d'),
+    '3': ObjectId('6ae1a360eabd0e543e2bbf4e'),
+    '4': ObjectId('6ae1a360eabd0e543e2bbf4f')
+  }
+}
+StudentManagementDB> db.students.find()
+[
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4b'),
+    studentId: 101,
+    name: 'Aarav Sharma',
+    department: 'CSE',
+    courseId: 'C101',
+    courseName: 'MongoDB',
+    marks: 85
+  },
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4c'),
+    studentId: 102,
+    name: 'Diya Patel',
+    department: 'IT',
+    courseId: 'C101',
+    courseName: 'MongoDB',
+    marks: 92
+  },
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4d'),
+    studentId: 103,
+    name: 'Kabir Singh',
+    department: 'CSE',
+    courseId: 'C102',
+    courseName: 'Python',
+    marks: 78
+  },
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4e'),
+    studentId: 104,
+    name: 'Ananya Verma',
+    department: 'AI',
+    courseId: 'C102',
+    courseName: 'Python',
+    marks: 88
+  },
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4f'),
+    studentId: 105,
+    name: 'Ishaan Gupta',
+    department: 'IT',
+    courseId: 'C103',
+    courseName: 'Data Analytics',
+    marks: 81
+  }
+]
+StudentManagementDB> db.students.find()
+[
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4b'),
+    studentId: 101,
+    name: 'Aarav Sharma',
+    department: 'CSE',
+    courseId: 'C101',
+    courseName: 'MongoDB',
+    marks: 85
+  },
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4c'),
+    studentId: 102,
+    name: 'Diya Patel',
+    department: 'IT',
+    courseId: 'C101',
+    courseName: 'MongoDB',
+    marks: 92
+  },
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4d'),
+    studentId: 103,
+    name: 'Kabir Singh',
+    department: 'CSE',
+    courseId: 'C102',
+    courseName: 'Python',
+    marks: 78
+  },
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4e'),
+    studentId: 104,
+    name: 'Ananya Verma',
+    department: 'AI',
+    courseId: 'C102',
+    courseName: 'Python',
+    marks: 88
+  },
+  {
+    _id: ObjectId('6ae1a360eabd0e543e2bbf4f'),
+    studentId: 105,
+    name: 'Ishaan Gupta',
+    department: 'IT',
+    courseId: 'C103',
+    courseName: 'Data Analytics',
+    marks: 81
+  }
+]
+StudentManagementDB> db.createCollection("courses")
+{ ok: 1 }
+StudentManagementDB> db.courses.insertMany([
+|     {
+|         courseId: "C101",
+|         courseName: "MongoDB",
+|         instructor: "Mr. Mehta",
+|         durationWeeks: 6
+|     },
+|     {
+|         courseId: "C102",
+|         courseName: "Python",
+|         instructor: "Ms. Rao",
+|         durationWeeks: 8
+|     },
+|     {
+|         courseId: "C103",
+|         courseName: "Data Analytics",
+|         instructor: "Mr. Khan",
+|         durationWeeks: 10
+|     }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6ae1a397eabd0e543e2bbf50'),
+    '1': ObjectId('6ae1a397eabd0e543e2bbf51'),
+    '2': ObjectId('6ae1a397eabd0e543e2bbf52')
+  }
+}
+StudentManagementDB> db.courses.find()
+[
+  {
+    _id: ObjectId('6ae1a397eabd0e543e2bbf50'),
+    courseId: 'C101',
+    courseName: 'MongoDB',
+    instructor: 'Mr. Mehta',
+    durationWeeks: 6
+  },
+  {
+    _id: ObjectId('6ae1a397eabd0e543e2bbf51'),
+    courseId: 'C102',
+    courseName: 'Python',
+    instructor: 'Ms. Rao',
+    durationWeeks: 8
+  },
+  {
+    _id: ObjectId('6ae1a397eabd0e543e2bbf52'),
+    courseId: 'C103',
+    courseName: 'Data Analytics',
+    instructor: 'Mr. Khan',
+    durationWeeks: 10
+  }
+]
+StudentManagementDB> db.students.updateOne(
+|     { studentId: 101 },
+|     { $set: { marks: 90 } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+StudentManagementDB> db.students.updateMany(
+|     { courseId: "C101" },
+|     { $inc: { marks: 2 } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+StudentManagementDB> db.students.find(
+|     {},
+|     { _id: 0, name: 1, courseName: 1, marks: 1 }
+| )
+[
+  { name: 'Aarav Sharma', courseName: 'MongoDB', marks: 92 },
+  { name: 'Diya Patel', courseName: 'MongoDB', marks: 94 },
+  { name: 'Kabir Singh', courseName: 'Python', marks: 78 },
+  { name: 'Ananya Verma', courseName: 'Python', marks: 88 },
+  { name: 'Ishaan Gupta', courseName: 'Data Analytics', marks: 81 }
+]
+StudentManagementDB> db.courses.createIndex({ courseId: 1 })
+courseId_1
+StudentManagementDB> db.courses.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { courseId: 1 }, name: 'courseId_1' }
+]
+StudentManagementDB> db.courses.find({ courseId: "C101" }).explain("executionStats")
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'StudentManagementDB.courses',
+    parsedQuery: { courseId: { '$eq': 'C101' } },
+    indexFilterSet: false,
+    queryHash: '05BAEC26',
+    planCacheShapeHash: '05BAEC26',
+    planCacheKey: 'F5AED07B',
+    optimizationTimeMillis: 6,
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    prunedSimilarIndexes: false,
+    winningPlan: {
+      isCached: false,
+      stage: 'FETCH',
+      nss: 'StudentManagementDB.courses',
+      inputStage: {
+        stage: 'IXSCAN',
+        nss: 'StudentManagementDB.courses',
+        keyPattern: { courseId: 1 },
+        indexName: 'courseId_1',
+        isMultiKey: false,
+        multiKeyPaths: { courseId: [] },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: { courseId: [ '["C101", "C101"]' ] }
+      }
+    },
+    rejectedPlans: []
+  },
+  executionStats: {
+    executionSuccess: true,
+    nReturned: 1,
+    executionTimeMillis: 24,
+    totalKeysExamined: 1,
+    totalDocsExamined: 1,
+    executionStages: {
+      isCached: false,
+      stage: 'FETCH',
+      nReturned: 1,
+      executionTimeMillisEstimate: 10,
+      works: 2,
+      advanced: 1,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      nss: 'StudentManagementDB.courses',
+      docsExamined: 1,
+      alreadyHasObj: 0,
+      inputStage: {
+        stage: 'IXSCAN',
+        nReturned: 1,
+        executionTimeMillisEstimate: 10,
+        works: 2,
+        advanced: 1,
+        needTime: 0,
+        needYield: 0,
+        saveState: 0,
+        restoreState: 0,
+        isEOF: 1,
+        nss: 'StudentManagementDB.courses',
+        keyPattern: { courseId: 1 },
+        indexName: 'courseId_1',
+        isMultiKey: false,
+        multiKeyPaths: { courseId: [] },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: { courseId: [ '["C101", "C101"]' ] },
+        keysExamined: 1,
+        seeks: 1,
+        dupsTested: 0,
+        dupsDropped: 0,
+        peakTrackedMemBytes: 0
+      }
+    }
+  },
+  queryShapeHash: 'B027A5EA2678C3DCE7CC0729E4622FD56B004F31644B2AD34CDA84071ED6FB51',
+  command: {
+    find: 'courses',
+    filter: { courseId: 'C101' },
+    '$db': 'StudentManagementDB'
+  },
+  serverInfo: {
+    host: 'prince',
+    port: 27017,
+    version: '8.3.11',
+    gitVersion: 'b8b83d6e6e1aed495578ad8c6f9234ad329c9955'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted',
+    internalQueryPlannerIgnoreIndexWithCollationForRegex: 1
+  },
+  ok: 1
+}
+StudentManagementDB> db.students.aggregate([
+|     {
+|         $group: {
+|             _id: "$courseId",
+|             totalStudents: { $sum: 1 },
+|             averageMarks: { $avg: "$marks" }
+|         }
+|     },
+|     {
+|         $lookup: {
+|             from: "courses",
+|             localField: "_id",
+|             foreignField: "courseId",
+|             as: "courseDetails"
+|         }
+|     },
+|     {
+|         $unwind: "$courseDetails"
+|     },
+|     {
+|         $project: {
+|             _id: 0,
+|             courseId: "$_id",
+|             courseName: "$courseDetails.courseName",
+|             totalStudents: 1,
+|             averageMarks: { $round: ["$averageMarks", 2] }
+|         }
+|     },
+|     {
+|         $sort: { courseId: 1 }
+|     }
+| ])
+[
+  {
+    totalStudents: 2,
+    courseId: 'C101',
+    courseName: 'MongoDB',
+    averageMarks: 93
+  },
+  {
+    totalStudents: 2,
+    courseId: 'C102',
+    courseName: 'Python',
+    averageMarks: 83
+  },
+  {
+    totalStudents: 1,
+    courseId: 'C103',
+    courseName: 'Data Analytics',
+    averageMarks: 81
+  }
+]
+StudentManagementDB> show dbs
+StudentManagementDB  116.00 KiB
+admin                 40.00 KiB
+amazonindemo          60.00 KiB
+college               40.00 KiB
+config                72.00 KiB
+local                 80.00 KiB
+metrascan             40.00 KiB
+StudentManagementDB> use StudentManagementDB
+already on db StudentManagementDB
+StudentManagementDB> db.students.countDocuments()
+5
+StudentManagementDB> db.courses.countDocuments()
+3
+StudentManagementDB>
